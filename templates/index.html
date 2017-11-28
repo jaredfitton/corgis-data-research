@@ -1,53 +1,30 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../static/index.css">
-        <title> CORGIS Date Research </title>
-    </head>
-    <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href=".">Airlines Data Research</a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavBar">
-                    <ul class="nav navbar-nav">
-                        <li class="active" ><a href="index.html">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <table class="table table-bordered table-striped">
-            <tbody>
-                <tr>
-                    <td> How is data regarding whether a flight is late or not, collected? </td>
-                    <td> Since June 2003, the airlines that report on-time data also report the causes of delays and cancellations to the Bureau of Transportation Statistics. Reported causes of delay are available from June 2003 to the most recent month. </td>
-                    <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q1"> Late Flight Info </a> </td>
-                </tr>
-                <tr>
-                    <td> How many flights were really delayed by weather? </td>
-                    <td> A true picture of total weather-related delays requires several steps. First, the extreme weather delays must be combined with the NAS weather category. Second, a calculation must be made to determine the weather-related delays included in the "late-arriving aircraft" category. Airlines do not report the causes of the late-arriving aircraft but an allocation can be made using the proportion of weather related-delays and total flights in the other categories. Adding the weather-related delays to the extreme weather and NAS weather categories would result in weather's share of all flight delays. </td>
-                    <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q7"> Flights Delayed By Weather </a> </td>
-                </tr>
-                <tr>
-                    <td> How were these numbers collected? </td>
-                    <td> 2003 to 2016 </td>
-                    <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html"> Data Collection Range </td>
-                </tr>
-                <tr>
-                    <td> Why aren’t all weather-related delays reported as a single number? </td>
-                    <td> It provides a better picture as to what affect the weather really had. </td>
-                    <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q8"> Weather Delays </td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% set active_page ="index" %}
+{% block title %} Info {% endblock %}
+
+{% block content %}
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td> How is data regarding whether a flight is late or not, collected? </td>
+                <td> Since June 2003, the airlines that report on-time data also report the causes of delays and cancellations to the Bureau of Transportation Statistics. Reported causes of delay are available from June 2003 to the most recent month. </td>
+                <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q1"> Late Flight Info </a> </td>
+            </tr>
+            <tr>
+                <td> How many flights were really delayed by weather? </td>
+                <td> A true picture of total weather-related delays requires several steps. First, the extreme weather delays must be combined with the NAS weather category. Second, a calculation must be made to determine the weather-related delays included in the "late-arriving aircraft" category. Airlines do not report the causes of the late-arriving aircraft but an allocation can be made using the proportion of weather related-delays and total flights in the other categories. Adding the weather-related delays to the extreme weather and NAS weather categories would result in weather's share of all flight delays. </td>
+                <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q7"> Flights Delayed By Weather </a> </td>
+            </tr>
+            <tr>
+                <td> How were these numbers collected? </td>
+                <td> 2003 to 2016 </td>
+                <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html"> Data Collection Range </td>
+            </tr>
+            <tr>
+                <td> Why aren’t all weather-related delays reported as a single number? </td>
+                <td> It provides a better picture as to what affect the weather really had. </td>
+                <td> <a href="https://www.rita.dot.gov/bts/help/aviation/html/understanding.html#q8"> Weather Delays </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
