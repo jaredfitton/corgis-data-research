@@ -22,8 +22,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavBar">
                 <ul class="nav navbar-nav">
-                    <li class="active" ><a href=".">Home</a></li>
-                    <li class="active" ><a href="most_delays">Most Delays</a></li>
+                    <li {% if active_page == "home "%} class="active" {% endif %}><a href=".">Home</a></li>
+                    <li {% if active_page == "most_delays "%} class="active" {% endif %}><a href="most_delays">Most Delays</a></li>
                 </ul>
             </div>
         </div>
