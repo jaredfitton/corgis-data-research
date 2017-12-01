@@ -4,6 +4,17 @@
 
 {% block content %}
 
-<p> Select an airline to find out how many delays the airline has had. </p>
+<p> Select an airport to see how many delays it has had siince 2003. </p>
+
+<form action=".">
+     <select name="Airport">
+       {{ response_airport_list }}
+     </select>
+     <br><br>
+     <input type="submit">
+</form>
+     {% if response_airport and response_delays is defined %}
+       <p> {{ response_airport }} has had {{ response_delays }} delays. </p>
+     {% endif %}
 
 {% endblock %}
