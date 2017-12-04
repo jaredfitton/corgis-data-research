@@ -1,20 +1,25 @@
 {% extends "layout.html" %}
 {% set active_page ="most_delays" %}
 {% block title %} Most Delays {% endblock %}
+{% block jscss %}
+    <script src="{{url_for('static',filename='most_delays.js')}}"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script> 
+{% endblock %}
 
 {% block content %}
+    <div align="center">
+        <p id="test"> Select an airport to see how many delays it has had since 2003. </p>
 
-<p> Select an airport to see how many delays it has had siince 2003. </p>
-
-<form action=".">
-     <select name="Airport">
-       {{ response_airport_list }}
-     </select>
-     <br><br>
-     <input type="submit">
-</form>
-     {% if response_airport and response_delays is defined %}
-       <p> {{ response_airport }} has had {{ response_delays }} delays. </p>
-     {% endif %}
-
+        <form action="most_delays">
+             <select name='Airport'>
+               {{ response_airport_list }}
+             </select>
+             <br><br>
+             <input type="submit">
+        </form>
+        {% if response_airport and response_delays is defined %}
+            <p> {{ response_airport }} has had {{ response_delays }} delays. </p>
+        {% endif %}
+        <div id="chartContainer" style="width: 100%; height: 300px"></div>
+    </div>
 {% endblock %}
