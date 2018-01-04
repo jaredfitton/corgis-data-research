@@ -7,21 +7,26 @@
 
 {% block content %}
     <div align="center">
-        <p id="test"> Select an airport to see how many delays it has had since 2003. </p>
 
+        <h1> See how many delays each airport has had each year. </h1>
+        <br></br>
         <form action="most_delays">
              <select name='Airport'>
                {{ response_airport_list }}
              </select>
+             <select name='Year'>
+                 {{ response_years }}
+             </select>
              <br><br>
              <input type="submit">
         </form>
-        {% if response_airport and response_delays is defined %}
-            <p> {{ response_airport }} has had {{ response_delays }} delays. </p>
+        <br></br>
+        {% if response_airport and response_delays and response_year is defined %}
+            <p> {{ response_airport }} had {{ response_delays }} delays in {{ response_year }}. </p>
         {% endif %}
 
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
@@ -48,7 +53,7 @@
             }
         </script>
         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script> -->
     </div>
 
 
