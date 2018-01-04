@@ -3,7 +3,6 @@
 {% block title %} Most Delays {% endblock %}
 {% block jscss %}
     <script src="{{url_for('static',filename='most_delays.js')}}"></script>
-    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script> 
 {% endblock %}
 
 {% block content %}
@@ -20,6 +19,37 @@
         {% if response_airport and response_delays is defined %}
             <p> {{ response_airport }} has had {{ response_delays }} delays. </p>
         {% endif %}
-        <div id="chartContainer" style="width: 100%; height: 300px"></div>
+
+
+        <script type="text/javascript">
+            window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+            	title: {
+            		text: "ACME Corporation Apparel Sales"
+            	},
+            	data: [{
+            		type: "doughnut",
+            		innerRadius: "40%",
+            		showInLegend: true,
+            		legendText: "{label}",
+            		indexLabel: "{label}: #percent%",
+            		dataPoints: [
+            			{ label: "Department Stores", y: 6492917 },
+            			{ label: "Discount Stores", y: 7380554 },
+            			{ label: "Stores for Men / Women", y: 1610846 },
+            			{ label: "Teenage Specialty Stores", y: 950875 },
+            			{ label: "All other outlets", y: 900001 }
+            		]
+            	}]
+            });
+            chart.render();
+            }
+        </script>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
     </div>
+
+
 {% endblock %}
