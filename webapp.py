@@ -28,11 +28,16 @@ def get_airport_list(airlines):
     return airport_list
 
 def get_airport_delays(airlines, airport, year):
-    total_delays = 0
+    delays = {"total_delays":0, "late_aircraft":0, "weather":0, "security":0, "national_aviation_system":0, "carrier":0}
     for a in airlines:
         if a["airport"]["name"] == airport and a["time"]["year"] == int(year):
-            total_delays += a["statistics"]["flights"]["delayed"]
-    return total_delays
+            delays["total_delays"] += a["statistics"]["flights"]["delayed"]
+            delays["late_aircraft"] += a["statistics"]["# of delays"]["late aircraft"]
+            delays["weather"] += a["statistics"]["# of delays"]["weather"]
+            delays["security"] += a["statistics"]["# of delays"]["security"]
+            delays["national_aviation_system"] += a["statistics"]["# of delays"]["national aviation system"]
+            delays["carrier"] += a["statistics"]["# of delays"]["carrier"]
+    return delays
 
 def get_years(airlines):
     years = ""
